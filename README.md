@@ -1,4 +1,4 @@
-# N.S.A // NEURAL SOC ANALYST — SETUP & RUN GUIDE
+# N.S.A // NEURAL SOC ANALYST — GUIDE
 **Project by:** T3MP3R3R  
 **Stack:** Flask · Groq LLM · Docker · ReportLab · n8n · VirusTotal
 
