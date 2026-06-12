@@ -167,12 +167,10 @@ docker compose up --build
 
 The project includes an automated test framework containing 42 unique validation checkpoints covering risk engines, VirusTotal lookup routines, Flask API routing edge cases, and ReportLab PDF compilation states.
 
-To run the automated validation tests locally, execute:
+To execute the full test suite using `pytest` from the **PROJECT ROOT** folder:
 ```bash
-cd backend
-python -m unittest tests/test_nsa.py
+python -m pytest backend/tests/test_nsa.py -v
 ```
-*(If you use pytest, you can alternatively run `pytest backend/tests/test_nsa.py` from the root folder).*
 
 ---
 
@@ -207,7 +205,9 @@ project/
 │   ├── config.py         Key parsing validation engine
 │   ├── history.py        Read/write operations handler for files
 │   ├── history.json      Persistent JSON file log of incidents
-│   └── report.py         Dynamic PDF generator via ReportLab
+│   ├── report.py         Dynamic PDF generator via ReportLab
+│   └── tests/            
+│       └── test_nsa.py   42 Unit tests validating backend logic
 └── frontend/
     ├── index.html        HTML application skeletal layout
     └── static/           
