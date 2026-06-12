@@ -29,17 +29,17 @@ This repository hosts a functional Proof of Concept focused on interface design,
 - **Verify:** `python --version`
 
 ### Docker Desktop
-- **Download:** [://docker.com](https://www.://docker.com/)
+- **Download:** [docker.com/products/docker-desktop/](https://www.docker.com/products/docker-desktop/)
 - **Windows:** Enable **WSL2** when prompted.
 - **After install:** Open Docker Desktop and wait for *"Engine running"* to appear in the bottom-left corner.
 - **Verify:** `docker --version`
 
 ### Git *(Optional but recommended)*
-- **Download:** [git-scm.com](https://git-scm.com)
+- **Download:** [git-scm.com/install/](https://git-scm.com/install/)
 - **Verify:** `git --version`
 
 ### API Keys
-- **Groq API Key (Free):** Sign up at [://groq.com](https://://groq.com/), go to *API Keys -> Create API Key*.
+- **Groq API Key (Free):** Sign up at [://groq.com](https://console.groq.com/home), go to *API Keys -> Create API Key*.
 - **VirusTotal API Key (Free):** Sign up at [virustotal.com](https://virustotal.com), go to your profile *-> API key*.
 
 ---
