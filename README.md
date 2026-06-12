@@ -244,3 +244,5 @@ project/
 - [ ] **Auth Layer:** Enforce individual user profiles protected behind signed JSON Web Tokens (JWT).
 - [ ] **WebSocket Stream:** Implement bidirectional sockets to push real-time threat items dynamically.
 - [ ] **MITRE ATT&CK Engine:** Correlate detected artifacts straight to global exploit frameworks.
+- [ ] **Pydantic/Instructor schema validation layer**: To enforce structured JSON outputs from Groq.
+- [ ] **System Prompt Guardrail**: To sanitize input strings before passing them to the model context.
