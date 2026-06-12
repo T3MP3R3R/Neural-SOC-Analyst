@@ -52,8 +52,8 @@ Extract the project folder anywhere, for example:
 
 ### Option B — Clone from Git
 ```bash
-git clone https://github.com
-cd neural-soc-analyst
+git clone https://github.com/T3MP3R3R/Neural-SOC-Analyst.git
+cd Neural-SOC-Analyst
 ```
 
 ---
@@ -197,7 +197,10 @@ project/
 ├── requirements.txt      ← Explicit list of Python dependencies
 ├── Dockerfile            ← Image building definitions 
 ├── docker-compose.yaml   ← Orchestrates multiple software layers
-├── README.md             ← This file guide layout
+├── README.md             ← Main user guide and installation document
+├── LICENSE               ← MIT Open-Source legal usage agreement
+├── CONTRIBUTING.md       ← Guidelines for open-source project collaboration
+├── CHANGELOG.md          ← Chronological log of version updates and fixes
 ├── backend/
 │   ├── app.py            ← Flask web app router & static asset server
 │   ├── analyzer.py       ← Core Groq LLM workflow parser
