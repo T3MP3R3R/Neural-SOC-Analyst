@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>N.S.A // Neural SOC Analyst</title>
+
+  <link rel="stylesheet" href="static/style.css" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@400;600;700;800&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<!-- ══════ HEADER ══════ -->
+  <header>
+  <div style="display:flex;align-items:center;gap:20px">
+    <div class="logo">N.S.A // NEURAL SOC ANALYST</div>
+    <div class="hdr-mid">
+      <div class="hdr-stat"><span id="hdr-time">00:00:00</span></div>
+      <div class="hdr-stat"><span style="color:rgba(0,204,255,.7)">LLAMA-3.1-8B</span></div>
+      <div class="hdr-stat">GROQ: <span id="groq-lbl" style="color:var(--green)">CONNECTED</span></div>
+    </div>
+  </div>
+  <div class="hdr-right">
+    <div class="sys-badge">
+      <div class="dot-wrap"><div class="dot-core"></div><div class="dot-ring"></div></div>
+      ANALYSIS_READY
+    </div>
+  </div>
+</header>
+
+<!-- ══════ SIDEBAR ══════ -->
+<nav>
+  <div class="nav-top">
+    <div class="nav-user">
+      <div class="nav-ava">NSA</div>
+      <div>
+        <div class="nav-name">SOC_ANALYST_AI</div>
+        <div class="nav-role">GROQ / LLM POWERED</div>
+      </div>
+    </div>
+
+    <div class="nav-section">MODULES</div>
+    <a class="nav-item active" href="#">
+      <span class="nav-icon"></span> THREAT_ANALYZE
+    </a>
+    <a class="nav-item" href="#">
+      <span class="nav-icon"></span> INCIDENT_LOG
+      <span class="nav-badge" id="nav-count">0</span>
+    </a>
+    <a class="nav-item" href="#">
+      <span class="nav-icon"></span> IOC_SCANNER
+    </a>
+    <a class="nav-item" href="#">
+      <span class="nav-icon"></span> SOC_REPORTS
+    </a>
+
+    <div class="nav-section">INTEGRATIONS</div>
+    <a class="nav-item" href="#" title="Coming soon">
+      <span class="nav-icon">1.</span> VIRUSTOTAL
+      <span class="nav-badge" style="background:rgba(0,255,136,.08);border-color:rgba(0,255,136,.25);color:var(--green)">LIVE</span>
+    </a>
+    <a class="nav-item" href="#" title="Coming soon">
+      <span class="nav-icon">2.</span> DOCKER_SOC
+      <span class="nav-badge" style="background:rgba(0,255,136,.08);border-color:rgba(0,255,136,.25);color:var(--green)">LIVE</span>
+    </a>
+    <a class="nav-item" href="#" title="Coming soon">
+      <span class="nav-icon">3.</span> N8N_HOOKS
+      <span class="nav-badge" style="background:rgba(0, 0, 0, 0.08);border-color:rgba(0,255,136,.25);color:var(--green)">LIVE</span>
+    </a>
+
+    <div class="nav-section">OSINT</div>
+    <a class="nav-item" href="https://www.shodan.io" target="_blank">
+      <span class="nav-icon">4.</span> SHODAN
+    </a>
+    <a class="nav-item" href="https://otx.alienvault.com" target="_blank">
+      <span class="nav-icon">5.</span> ALIENVAULT OTX
+    </a>
+    <a class="nav-item" href="https://www.abuseipdb.com" target="_blank">
+      <span class="nav-icon">6.</span> ABUSEIPDB
+    </a>
+  </div>
+  <div class="nav-bottom">
+    <div class="nav-ver">NSA v2.0.0 // NEURAL ENGINE</div>
+    <div class="nav-ver">BACKEND: FLASK 3.0 / GROQ API</div>
+  </div>
+</nav>
+
+<!-- ══════ MAIN ══════ -->
+<main>
+<div class="content">
+
+  <!-- METRICS ROW -->
+  <div class="metrics-row">
+    <div class="glass metric cornered">
+      <div class="metric-id">[M-01]</div>
+      <div class="metric-val v-cyan" id="m-total">0</div>
+      <div class="metric-lbl">Analyzed</div>
+      <div class="metric-bar"><div class="metric-fill" id="mf-total" style="width:0%;background:var(--cyan)"></div></div>
+    </div>
+    <div class="glass metric cornered glass-red">
+      <div class="metric-id">[M-02]</div>
+      <div class="metric-val v-red" id="m-high">00</div>
+      <div class="metric-lbl">High Risk</div>
+      <div class="metric-bar"><div class="metric-fill" id="mf-high" style="width:0%;background:var(--red)"></div></div>
+    </div>
+    <div class="glass metric cornered" style="border-color:rgba(255,147,0,.1)">
+      <div class="metric-id">[M-03]</div>
+      <div class="metric-val v-orange" id="m-med">00</div>
+      <div class="metric-lbl">Medium Risk</div>
+      <div class="metric-bar"><div class="metric-fill" id="mf-med" style="width:0%;background:var(--orange)"></div></div>
+    </div>
+    <div class="glass metric cornered glass-ok">
+      <div class="metric-id">[M-04]</div>
+      <div class="metric-val v-green" id="m-low">00</div>
+      <div class="metric-lbl">Low Risk</div>
+      <div class="metric-bar"><div class="metric-fill" id="mf-low" style="width:0%;background:var(--green)"></div></div>
+    </div>
+    <div class="glass metric cornered">
+      <div class="metric-id">[M-05]</div>
+      <div class="metric-val v-muted" id="m-session">00:00</div>
+      <div class="metric-lbl">Session Time</div>
+    </div>
+    <div class="glass metric cornered">
+      <div class="metric-id">[M-06]</div>
+      <div class="metric-val v-cyan" id="m-avg">N/A</div>
+      <div class="metric-lbl">Avg Score</div>
+      <div class="metric-bar"><div class="metric-fill" id="mf-avg" style="width:0%;background:var(--cyan)"></div></div>
+    </div>
+  </div>
+
+  <!-- MAIN ROW -->
+  <div class="row-main">
+
+    <!-- ── INPUT PANEL ── -->
+    <div class="glass panel cornered">
+      <div class="panel-head">
+        <div class="panel-title"><span></span> THREAT_INPUT_CONSOLE</div>
+        <div class="panel-meta" id="input-status">AWAITING_PAYLOAD</div>
+      </div>
+      <div class="panel-body" style="display:flex;flex-direction:column;gap:0">
+
+        <!-- Scan type -->
+        <div style="margin-bottom:9px">
+          <div class="input-label">SCAN TYPE</div>
+          <div class="scan-types">
+            <button class="stype active" onclick="setScanType(this,'AUTO')">AUTO</button>
+            <button class="stype" onclick="setScanType(this,'EMAIL')">EMAIL</button>
+            <button class="stype" onclick="setScanType(this,'URL')">URL</button>
+            <button class="stype" onclick="setScanType(this,'LOG')">LOG</button>
+            <button class="stype" onclick="setScanType(this,'PAYLOAD')">PAYLOAD</button>
+            <button class="stype" onclick="setScanType(this,'HASH')">HASH</button>
+          </div>
+        </div>
+
+        <!-- Textarea -->
+        <div class="input-area">
+          <div class="input-label">THREAT ARTIFACT</div>
+          <div class="scan-sweep" id="scan-sweep" style="display:none"></div>
+          <textarea id="input"
+            placeholder="Paste suspicious email headers, URL, log entry, payload, IP address, file hash, or any threat artifact...&#10;&#10;• Phishing emails  • Suspicious URLs&#10;• Log anomalies    • Base64 payloads&#10;• MD5 / SHA256 hashes"
+            oninput="onInputChange(this)"></textarea>
+          <span class="char-count" id="char-count">0 chars</span>
+        </div>
+
+        <!-- IOC strip -->
+        <div class="ioc-strip" id="ioc-strip">
+          <span class="ioc-label">AUTO-IOC:</span>
+          <span style="font-size:9px;color:rgba(94,143,168,.3);font-family:var(--font-m)">paste input to extract IOCs</span>
+        </div>
+
+        <!-- Buttons -->
+        <button class="btn-primary" id="analyze-btn" onclick="analyze()">▶ RUN NEURAL ANALYSIS</button>
+        <button class="btn-secondary" onclick="generateReport()">⬇ EXPORT SOC REPORT (PDF)</button>
+
+        <!-- OSINT Quick Links -->
+        <div style="margin-top:10px">
+          <div class="input-label">OSINT QUICK LOOKUP</div>
+          <div class="osint-row">
+            <input class="qs-input" id="osint-q" placeholder="IP / Domain / Hash..." />
+            <button class="qs-btn" onclick="osint('vt')"    title="VirusTotal">VT</button>
+            <button class="qs-btn" onclick="osint('shodan')" title="Shodan">SHD</button>
+            <button class="qs-btn" onclick="osint('abuse')"  title="AbuseIPDB">AIPDB</button>
+            <button class="qs-btn" onclick="osint('otx')"    title="AlienVault OTX">OTX</button>
+          </div>
+        </div>
+
+        <!-- Clear -->
+        <button class="btn-secondary btn-danger" onclick="clearInput()" style="margin-top:6px">✕ CLEAR INPUT</button>
+      </div>
+    </div>
+
+    <!-- ── RESULT PANEL ── -->
+    <div class="glass panel cornered">
+      <div class="panel-head">
+        <div class="panel-title"><span></span> THREAT_ASSESSMENT_ENGINE</div>
+        <div class="panel-meta" id="result-status">IDLE</div>
+      </div>
+      <div class="panel-body" id="result-panel">
+        <div class="result-empty" id="result-empty">
+          <div class="result-empty-icon">🛡</div>
+          <div>NEURAL ENGINE STANDBY</div>
+          <div style="font-size:10px;opacity:.7">Submit a threat artifact to begin analysis</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── HISTORY PANEL ── -->
+    <div class="glass panel cornered">
+      <div class="panel-head">
+        <div class="panel-title"><span></span> INCIDENT_LOG</div>
+        <span id="hist-count" style="font-size:10px;color:var(--on-muted);font-family:var(--font-m)">0 records</span>
+      </div>
+      <div class="panel-body">
+        <div class="history-list" id="history-list">
+          <div style="font-size:10px;color:rgba(94,143,168,.3);font-family:var(--font-m);text-align:center;padding:22px 0">
+            No incidents logged
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /row-main -->
+
+  <!-- BOTTOM ROW -->
+  <div class="row-bottom">
+
+    <!-- ── NEURAL THREAT MAP ── -->
+    <div class="glass panel cornered neural-wrap">
+      <div class="panel-head" style="position:relative;z-index:3">
+        <div class="panel-title">NEURAL_THREAT_MAP</div>
+        <div class="panel-meta" id="neural-meta">NODES: 0 / EDGES: 0</div>
+      </div>
+      <canvas id="neural-canvas"></canvas>
+      <div class="neural-overlay">
+        <div class="neural-title">THREAT TOPOLOGY</div>
+        <div class="neural-sub" id="neural-mode">PASSIVE SCAN</div>
+      </div>
+      <div class="neural-foot">
+        <span>LATENCY: <span id="nn-lat">--</span>ms</span>
+        <span>ENTROPY: <span id="nn-ent">0.000</span></span>
+        <span>PACKETS: <span id="nn-pkt">0</span></span>
+      </div>
+    </div>
+
+    <!-- ── TTY TERMINAL ── -->
+    <div class="glass panel cornered" style="background:rgba(0,0,0,.6)">
+      <div class="panel-head">
+        <div class="panel-title">SOC_TTY_OUTPUT</div>
+        <div style="display:flex;gap:8px">
+          <span style="font-size:11px;cursor:pointer;color:rgba(94,143,168,.4);font-family:var(--font-ui);font-weight:700" onclick="clearTTY()">CLR</span>
+        </div>
+      </div>
+      <div class="tty-body" id="tty-body">
+        <span class="tty-line tty-dim">[boot] NSA kernel 2.0.0 starting...</span><br>
+        <span class="tty-line tty-ok">[  OK  ] Neural engine initialized</span><br>
+        <span class="tty-line tty-ok">[  OK  ] Groq API link established</span><br>
+        <span class="tty-line tty-cyan">[  INFO ] Model: llama-3.1-8b-instant</span><br>
+        <span class="tty-line tty-cyan">[  INFO ] Flask backend: http://127.0.0.1:5000</span><br>
+        <span class="tty-line tty-dim">[  INFO ] Awaiting threat payload...</span><br>
+      </div>
+      <div class="tty-prompt-row">
+        <span class="tty-ps">analyst@nsa:~#</span>
+        <span class="cursor"></span>
+      </div>
+    </div>
+
+    <!-- ── INTEGRATION HUB ── -->
+    <div class="glass panel cornered">
+      <div class="panel-head">
+        <div class="panel-title">INTEGRATION_HUB</div>
+        <div class="panel-meta">THREAT_INTEL</div>
+      </div>
+      <div class="integrations-body">
+        <div class="int-item">
+          <div class="int-icon"></div>
+          <div class="int-info">
+            <div class="int-name">GROQ LLM ENGINE</div>
+            <div class="int-detail">llama-3.1-8b-instant · active</div>
+          </div>
+          <div class="int-status st-live">LIVE</div>
+        </div>
+        <div class="int-item">
+          <div class="int-icon"></div>
+          <div class="int-info">
+            <div class="int-name">OSINT QUICK-LINKS</div>
+            <div class="int-detail">VT · Shodan · AbuseIPDB · OTX</div>
+          </div>
+          <div class="int-status st-live">LIVE</div>
+        </div>
+        <div class="int-item">
+          <div class="int-icon"></div>
+          <div class="int-info">
+            <div class="int-name">VIRUSTOTAL API</div>
+            <div class="int-detail">Hash / URL / IP reputation scan</div>
+          </div>
+          <div class="int-status st-live">LIVE</div>
+        </div>
+        <div class="int-item">
+          <div class="int-icon"></div>
+          <div class="int-info">
+            <div class="int-name">DOCKER SOC</div>
+            <div class="int-detail">Containerized analysis sandbox</div>
+          </div>
+          <div class="int-status st-live">LIVE</div>
+        </div>
+        <div class="int-item">
+          <div class="int-icon"></div>
+          <div class="int-info">
+            <div class="int-name">N8N WEBHOOKS</div>
+            <div class="int-detail">SOAR automation pipeline</div>
+          </div>
+          <div class="int-status st-live">LIVE</div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /row-bottom -->
+
+</div><!-- /content -->
+</main>
+
+<!-- ══════ FOOTER ══════ -->
+<footer>
+  <div style="display:flex;align-items:center;gap:14px">
+    <span class="ft-ok">NEURAL_ENGINE [ONLINE]</span>
+    <span class="ft-dim">|</span>
+    <span>INCIDENTS: <span id="ft-incidents">0</span></span>
+    <span class="ft-dim">|</span>
+    <span>THREAT_LEVEL: <span id="ft-threat" style="color:var(--green)">NOMINAL</span></span>
+    <span class="ft-dim">|</span>
+    <span>SECURE: TLS1.3</span>
+  </div>
+  <div style="display:flex;align-items:center;gap:10px">
+    <div class="dot-wrap"><div class="dot-core"></div><div class="dot-ring"></div></div>
+    SESSION: <span id="ft-session" style="color:var(--green)">ACTIVE</span>
+    &nbsp;&nbsp;NSA v2.0.0
+  </div>
+</footer>
+
+  <script src="static/script.js"></script>
+</body>
+</html>
