@@ -4,6 +4,22 @@
 
 ---
 
+## Project Status: Proof of Concept (PoC)
+This repository hosts a functional Proof of Concept focused on interface design, core AI pipelines, and backend service orchestration. 
+
+### What is Fully Functional
+- **Flask Backend:** Handles server-side API routing and asset serving.
+- **Groq LLM Pipeline:** Connects to the Llama model engine to parse and analyze threat prompts.
+- **Dynamic PDF Generation:** Compiles and downloads structured SOC summaries using ReportLab.
+- **Container Architecture:** Orchestrates deployment environments via Docker Compose.
+
+### What is Simulated / In Development (UI Only)
+- **THREAT_MAP Topology Display:** The visual node map graph is a styled static CSS mockup. It does not map real-world nodes live yet.
+- **IOC_SCANNER & SOC_REPORTS Navigation Modules:** These menu links are visual placeholders in the frontend sidebar routing layer.
+
+---
+
+
 ## STEP 0 — PREREQUISITES
 *(Install once on any new PC)*
 
@@ -187,7 +203,7 @@ project/
 
 ---
 
-## 🔍 TROUBLESHOOTING
+## TROUBLESHOOTING
 
 - **`ModuleNotFoundError`**
   - Run `pip install -r requirements.txt` inside your terminal environment.
