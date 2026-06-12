@@ -32,7 +32,6 @@ Create a file named `.env` in the root folder and add your specific API tokens:
 ```ini
 GROQ_API_KEY=your_groq_api_key_here
 VIRUSTOTAL_API_KEY=your_virustotal_api_key_here
-FLASK_ENV=development
 ```
 
 ### 3. Build and Run via Docker
