@@ -14,3 +14,5 @@ VT_BASE_URL   = "https://www.virustotal.com/api/v3"
 
 if not GROQ_API_KEY:
     raise RuntimeError("GROQ_API_KEY not set. Check your .env file.")
+if not VT_API_KEY:
+    raise RuntimeError("VT_API_KEY not set. Check your .env file.")
