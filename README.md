@@ -162,6 +162,20 @@ docker compose up --build
 
 ---
 
+## STEP 5 — RUNNING UNIT TESTS
+*(Optional Validation Suite)*
+
+The project includes an automated test framework containing 42 unique validation checkpoints covering risk engines, VirusTotal lookup routines, Flask API routing edge cases, and ReportLab PDF compilation states.
+
+To run the automated validation tests locally, execute:
+```bash
+cd backend
+python -m unittest tests/test_nsa.py
+```
+*(If you use pytest, you can alternatively run `pytest backend/tests/test_nsa.py` from the root folder).*
+
+---
+
 ## QUICK REFERENCE — COMMON COMMANDS
 
 | Action | Command |
