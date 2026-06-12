@@ -33,12 +33,12 @@
 
 ### Option A — Copy from USB / ZIP
 Extract the project folder anywhere, for example:  
-`C:\Users\YourName\Desktop\AI SOC Analyzer\`
+`C:\Users\YourName\Desktop\Neural-SOC-Analyst\`
 
 ### Option B — Clone from Git
 ```bash
 git clone https://github.com
-cd ai-soc-analyzer
+cd neural-soc-analyst
 ```
 
 ---
@@ -53,6 +53,8 @@ GROQ_API_KEY=your_actual_groq_key_here
 VIRUSTOTAL_API_KEY=your_actual_virustotal_key_here
 ```
 
+> ⚠️ **IMPORTANT:** Never share this file. Never upload it to GitHub. The `.gitignore` file is already configured to exclude it.
+
 ---
 
 ## STEP 3A — RUN LOCALLY
@@ -60,7 +62,7 @@ VIRUSTOTAL_API_KEY=your_actual_virustotal_key_here
 
 Open a terminal (Command Prompt or PowerShell) and navigate to your project:
 ```bash
-cd "C:\Users\YourName\Desktop\AI SOC Analyzer"
+cd "C:\Users\YourName\Desktop\Neural-SOC-Analyst"
 ```
 
 Install Python dependencies *(only needed once)*:
@@ -84,7 +86,7 @@ Open your browser and navigate to: **[http://127.0.0.1:5000](http://127.0.0.1:50
 1. Make sure **Docker Desktop** is open and the engine is running.
 2. Open a terminal from the **PROJECT ROOT** folder (not the backend folder):
 ```bash
-cd "C:\Users\YourName\Desktop\AI SOC Analyzer"
+cd "C:\Users\YourName\Desktop\Neural-SOC-Analyst"
 ```
 
 Build and launch the container structure:
