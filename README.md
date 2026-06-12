@@ -19,7 +19,6 @@ This repository hosts a functional Proof of Concept focused on interface design,
 
 ---
 
-
 ## STEP 0 — PREREQUISITES
 *(Install once on any new PC)*
 
@@ -36,11 +35,11 @@ This repository hosts a functional Proof of Concept focused on interface design,
 - **Verify:** `docker --version`
 
 ### Git *(Optional but recommended)*
-- **Download:** [://git-scm.com](https://://git-scm.com)
+- **Download:** [git-scm.com](https://git-scm.com)
 - **Verify:** `git --version`
 
 ### API Keys
-- **Groq API Key (Free):** Sign up at [://groq.com](https://://groq.com), go to *API Keys -> Create API Key*.
+- **Groq API Key (Free):** Sign up at [://groq.com](https://://groq.com/), go to *API Keys -> Create API Key*.
 - **VirusTotal API Key (Free):** Sign up at [virustotal.com](https://virustotal.com), go to your profile *-> API key*.
 
 ---
@@ -193,26 +192,26 @@ python -m pytest backend/tests/test_nsa.py -v
 
 ```text
 project/
-├── .env                  Horizontal lines denote local keys (never share)
-├── .gitignore            Excludes system configs, .env, and caches
-├── requirements.txt      Explicit list of Python dependencies
-├── Dockerfile            Image building definitions 
-├── docker-compose.yaml   Orchestrates multiple software layers
-├── README.md             This layout file
+├── .env                  ← Local environment keys (never share or commit)
+├── .gitignore            ← Excludes system configs, .env, and caches
+├── requirements.txt      ← Explicit list of Python dependencies
+├── Dockerfile            ← Image building definitions 
+├── docker-compose.yaml   ← Orchestrates multiple software layers
+├── README.md             ← This file guide layout
 ├── backend/
-│   ├── app.py            Flask web app router & static asset server
-│   ├── analyzer.py       Core Groq LLM workflow parser
-│   ├── config.py         Key parsing validation engine
-│   ├── history.py        Read/write operations handler for files
-│   ├── history.json      Persistent JSON file log of incidents
-│   ├── report.py         Dynamic PDF generator via ReportLab
+│   ├── app.py            ← Flask web app router & static asset server
+│   ├── analyzer.py       ← Core Groq LLM workflow parser
+│   ├── config.py         ← API keys and verification engine
+│   ├── history.py        ← Read/write operations handler for files
+│   ├── history.json      ← Persistent JSON file log of incidents
+│   ├── report.py         ← Dynamic PDF generator via ReportLab
 │   └── tests/            
-│       └── test_nsa.py   42 Unit tests validating backend logic
+│       └── test_nsa.py   ← 42 Unit tests validating backend logic
 └── frontend/
-    ├── index.html        HTML application skeletal layout
+    ├── index.html        ← HTML application skeletal layout
     └── static/           
-         ├── style.css    Cyberpunk dark-themed style sheet
-         └── script.js    State handling asynchronous AJAX controller
+         ├── style.css    ← Cyberpunk dark-themed style sheet
+         └── script.js    ← State handling asynchronous AJAX controller
 ```
 
 ---
@@ -225,7 +224,7 @@ project/
   - Ensure your `.env` layout file resides exactly in your root path. Ensure no invalid spacing characters exist near assignments (e.g., `GROQ_API_KEY=yourkey`).
 - **`Port 5000 already in use`**
   - You have conflicting backend services running simultaneously. Find and kill the active process identifier:
-    - **Windows:** Run `netstat -ano \| findstr :5000`, then terminate using `taskkill /PID <number> /F`.
+    - **Windows:** Run `netstat -ano | findstr :5000`, then terminate using `taskkill /PID <number> /F`.
 - **`Docker: 500 Internal Server Error` / Connection Timeout**
   - Docker Desktop engine is offline. Open the interface app and verify the bottom left green status icon says *"Engine running"* before retrying.
 - **`docker-compose: command not found`**
@@ -244,5 +243,5 @@ project/
 - [ ] **Auth Layer:** Enforce individual user profiles protected behind signed JSON Web Tokens (JWT).
 - [ ] **WebSocket Stream:** Implement bidirectional sockets to push real-time threat items dynamically.
 - [ ] **MITRE ATT&CK Engine:** Correlate detected artifacts straight to global exploit frameworks.
-- [ ] **Pydantic/Instructor schema validation layer**: To enforce structured JSON outputs from Groq.
-- [ ] **System Prompt Guardrail**: To sanitize input strings before passing them to the model context.
+- [ ] **Pydantic/Instructor Schema Validation Layer:** To enforce structured JSON outputs from Groq.
+- [ ] **System Prompt Guardrail:** To sanitize input strings before passing them to the model context.
