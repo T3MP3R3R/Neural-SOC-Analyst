@@ -2,6 +2,8 @@
 **Project by:** T3MP3R3R  
 **Stack:** Flask · Groq LLM · Docker · ReportLab · n8n · VirusTotal
 
+<img width="1280" height="603" alt="Dashboard Preview" src="https://github.com/user-attachments/assets/76469dc6-c5cc-4c3b-be7c-ef2ab2eba7f1" />
+
 ---
 
 ## Project Status: Proof of Concept (PoC)
