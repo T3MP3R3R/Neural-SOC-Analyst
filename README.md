@@ -39,7 +39,7 @@ This repository hosts a functional Proof of Concept focused on interface design,
 - **Verify:** `git --version`
 
 ### API Keys
-- **Groq API Key (Free):** Sign up at [://groq.com](https://console.groq.com/home), go to *API Keys -> Create API Key*.
+- **Groq API Key (Free):** Sign up at [groq.com](https://console.groq.com/home), go to *API Keys -> Create API Key*.
 - **VirusTotal API Key (Free):** Sign up at [virustotal.com](https://virustotal.com), go to your profile *-> API key*.
 
 ---
